@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</ht<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>M+S Tyre Expert | Uw Bandenspecialist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="lang-switcher">
+  <button onclick="changeLanguage('nl')" class="lang-btn active">NL</button>
+  <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
+  <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
+</div>
+
+<div class="scroll-container">
+  <section class="full-page hero">
+    <div class="hero-content">
+      <h1 class="logo-main">M+S <span>Tyre Expert</span></h1>
+      <p class="hero-slogan">
+        <span class="subtle-num">4</span> <span data-i18n="hero_locaties">locaties.</span>
+        <span class="subtle-text" data-i18n="hero_standaard">1 standaard: Perfectie.</span>
+      </p>
+      <div class="scroll-wrapper">
+        <span class="scroll-text" data-i18n="scroll_discover">Ontdek onze vestigingen</span>
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="locations" class="full-page locations-bg">
+    <h2 class="section-title" data-i18n="title_locations">Onze Vestigingen</h2>
+    <div class="flex-container">
+      <div class="location-card" style="background-image: url('images/MSbandenexperts.png'); background-position: right center;">
+        <div class="status-tag" data-i18n="status_loading">Laden...</div>
+        <div class="card-overlay">
+          <div class="card-info">
+            <h3>Genk</h3>
+            <p>Westerring 12</p>
+            <div class="card-buttons">
+              <a href="tel:011123456" class="btn-card" data-i18n="btn_call">Bel Nu</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Westerring+12+Genk" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="location-card" style="background-image: url('images/hasselt.jpg');">
+        <div class="status-tag" data-i18n="status_loading">Laden...</div>
+        <div class="card-overlay">
+          <div class="card-info">
+            <h3>Hasselt</h3>
+            <p>Gouv. Verwilghensingel 4</p>
+            <div class="card-buttons">
+              <a href="tel:011987654" class="btn-card" data-i18n="btn_call">Bel Nu</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Gouverneur+Verwilghensingel+4+Hasselt" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="location-card" style="background-image: url('images/maasmechelen.jpg');">
+        <div class="status-tag" data-i18n="status_loading">Laden...</div>
+        <div class="card-overlay">
+          <div class="card-info">
+            <h3>Maasmechelen</h3>
+            <p>Rijksweg 150</p>
+            <div class="card-buttons">
+              <a href="tel:089123456" class="btn-card" data-i18n="btn_call">Bel Nu</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Rijksweg+150+Maasmechelen" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="location-card" style="background-image: url('images/sint-truiden.jpg');">
+        <div class="status-tag" data-i18n="status_loading">Laden...</div>
+        <div class="card-overlay">
+          <div class="card-info">
+            <h3>Sint-Truiden</h3>
+            <p>Luikersteenweg 50</p>
+            <div class="card-buttons">
+              <a href="tel:011456789" class="btn-card" data-i18n="btn_call">Bel Nu</a>
+              <a href="https://www.google.com/maps/dir/?api=1&destination=Luikersteenweg+50+Sint-Truiden" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices" class="full-page prices-bg">
+    <h2 class="section-title" data-i18n="price_title">Prijslijst</h2>
+    <div class="price-container">
+      <div class="price-tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'nieuw')" data-i18n="tab_new">Nieuw</button>
+        <button class="tab-btn" onclick="openTab(event, 'tweedehands')" data-i18n="tab_used">2dehands</button>
+      </div>
+      <div class="table-responsive">
+        <div id="nieuw" class="tab-content active">
+          <table class="price-table">
+            <thead><tr><th data-i18n="th_size">Maat</th><th data-i18n="th_budget">Budget</th><th data-i18n="th_premium">Premium</th></tr></thead>
+            <tbody>
+            <tr><td>15"</td><td>€55</td><td>€85</td></tr>
+            <tr><td>16"</td><td>€65</td><td>€95</td></tr>
+            <tr><td>17"</td><td>€75</td><td>€115</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div id="tweedehands" class="tab-content">
+          <table class="price-table">
+            <thead><tr><th data-i18n="th_size">Maat</th><th>5-6mm</th><th>7mm+</th></tr></thead>
+            <tbody>
+            <tr><td>15"</td><td>€25</td><td>€35</td></tr>
+            <tr><td>16"</td><td>€30</td><td>€45</td></tr>
+            <tr><td>17"</td><td>€40</td><td>€55</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <p class="price-note" data-i18n="price_note">* Prijzen incl. montage & balanceren.</p>
+    </div>
+  </section>
+
+  <section class="full-page footer-section">
+    <div class="final-content">
+      <h2 class="logo-main">M+S <span>Tyre Expert</span></h2>
+      <div class="company-details">
+        <p><strong>TYRE EXPERT SRL</strong></p>
+        <p>En Hayeneux 73, 4040 Herstal</p>
+        <p>BTW: BE 1026.669.972</p>
+        <p class="footer-email">Email: <a href="mailto:info@mstyreexpert.be">info@mstyreexpert.be</a></p>
+      </div>
+      <footer class="site-footer">© 2026 M+S Tyre Expert</footer>
+    </div>
+  </section>
+</div>
+
+<script src="../BandenExperts/script.js"></script>
+</body>
+</html>ml>
