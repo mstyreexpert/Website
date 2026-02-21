@@ -338,6 +338,132 @@ body {
     animation: bounce 2s infinite;
 }
 
+     /* Styling voor de Merken Sectie */
+ .brands-section {
+     background: #161616;
+     padding: 60px 20px;
+ }
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+}
+.brand-item {
+    width: 120px;
+    height: auto;
+    opacity: 0.6;
+    filter: grayscale(1) invert(1); /* Zorgt dat zwarte logo's wit worden voor je donkere thema */
+    transition: all 0.4s ease;
+}
+.brand-item:hover {
+    opacity: 1;
+    filter: grayscale(0) invert(0); /* Toont originele kleuren bij hover */
+    transform: scale(1.1);
+}
+.camionetten-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px dashed var(--primary);
+    border-radius: 12px;
+    background: rgba(235, 94, 40, 0.05);
+    color: var(--white);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+/* Tabel scroll fix voor mobiel */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================
+   10. MERKEN & PRIJSLIJST EXTRA'S
+   ========================================= */
+
+/* De Merken Sectie styling */
+.brands-section {
+    background: #111111; /* Iets donkerder dan de rest voor contrast */
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 40px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-items: center;
+}
+
+.brand-item {
+    width: 120px;
+    height: auto;
+    opacity: 0.6;
+    /* Invert zorgt dat zwarte logo's wit worden op je donkere achtergrond */
+    filter: grayscale(1) invert(1) brightness(1.5);
+    transition: all 0.4s ease;
+}
+
+.brand-item:hover {
+    opacity: 1;
+    filter: grayscale(0) invert(0) brightness(1); /* Terug naar originele kleur */
+    transform: scale(1.1);
+}
+
+/* De Camionetten Box binnen de prijslijst */
+.camionetten-box {
+    margin-top: 25px;
+    padding: 15px;
+    border: 2px dashed var(--primary);
+    border-radius: 12px;
+    background: rgba(235, 94, 40, 0.05);
+    color: var(--white);
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    animation: fadeIn 0.8s ease;
+}
+
+/* Extra responsive fix voor de tabellen op mobiel */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 10px;
+}
+
+.minimal-info-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
+.minimal-row { font-size: 0.9rem; margin-bottom: 5px; opacity: 0.8; }
+.orange-text { color: var(--primary); font-weight: bold; opacity: 1; }
+
+@media (max-width: 600px) {
+    .minimal-row {
+        font-size: 0.8rem;
+    }
+}
+
+/* Kleine aanpassing voor de prijslijst container op kleine schermen */
+@media (max-width: 650px) {
+    .brands-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 logo's naast elkaar op mobiel */
+        gap: 20px;
+    }
+    .brand-item {
+        width: 100px;
+    }
+}
+
+
 @keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
@@ -345,8 +471,243 @@ body {
 }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+
 /* =========================================
-   9. RESPONSIVE DESIGN (BREAKPOINTS)
+   11. INTERACTIEVE UPGRADES (TOEVOEGINGEN)
+   ========================================= */
+
+/* Subtiele glans-animatie voor de actieve tab en knoppen */
+.lang-btn.active, .tab-btn.active, .btn-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-btn.active::after, .tab-btn.active::after, .btn-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: all 0.6s dashed;
+    animation: shine 4s infinite linear;
+}
+
+@keyframes shine {
+    0% { left: -60%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+}
+
+/* Interactie voor de Locatie Kaarten */
+.location-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.location-card:hover::before {
+    opacity: 0.5;
+}
+
+/* Link-hover effect voor de e-mail in de footer */
+.footer-email a {
+    position: relative;
+    display: inline-block;
+}
+
+.footer-email a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.footer-email a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Klik-effect voor alle knoppen (Active state) */
+.btn-card:active, .tab-btn:active, .lang-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+}
+
+/* Scroll-snap verbetering: Smooth focus */
+.full-page {
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* Extra touch voor de prijs-tabel rijen */
+.price-table tr:hover td {
+    background: rgba(235, 94, 40, 0.05);
+    color: var(--primary);
+    transition: all 0.2s ease;
+}
+
+/* Maak de "status-tag" kloppend (Pulse effect voor 'Open') */
+.status-tag {
+    animation: pulse-border 2s infinite;
+}
+
+@keyframes pulse-border {
+    0% { box-shadow: 0 0 0 0 rgba(235, 94, 40, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(235, 94, 40, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(235, 94, 40, 0); }
+}
+
+.nav-dots {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dot:hover {
+    background: rgba(235, 94, 40, 0.5); /* Oranje gloed */
+}
+
+.dot.active {
+    background: var(--primary);
+    transform: scale(1.3);
+    box-shadow: 0 0 10px rgba(235, 94, 40, 0.6);
+}
+
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+
+.loader-content { text-align: center; }
+
+.loading-bar {
+    width: 0;
+    height: 3px;
+    background: var(--primary);
+    margin-top: 10px;
+    animation: loadProgress 1.5s ease-in-out forwards;
+}
+
+@keyframes loadProgress {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Klasse om te verbergen via JS */
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+.about-text {
+    max-width: 600px;
+    margin: 1.5rem auto;
+    font-style: italic;
+    line-height: 1.8;
+    opacity: 0.9;
+    font-size: 0.95rem;
+}
+.legal-links {
+    margin-top: 10px;
+    font-size: 0.7rem;
+    opacity: 0.5;
+}
+.legal-links a {
+    color: white;
+    text-decoration: none;
+}
+.legal-links a:hover {
+    text-decoration: underline;
+}
+/* Zorg dat de modal zelf zichtbaar is als display op block staat */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000; /* Hoger dan de nav-dots */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+}
+
+/* De witte/grijze box in het midden */
+.modal-content {
+    background-color: #1a1a1a;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid var(--primary);
+    width: 90%;
+    max-width: 600px;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    color: white;
+}
+
+/* De sluitknop (X) */
+.close-modal-terms, .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--primary);
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* De container voor de tekst */
+.terms-text-container {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+/* Scrollbar styling voor modal */
+.terms-text-container::-webkit-scrollbar { width: 5px; }
+.terms-text-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
+
+/* =========================================
+   12. RESPONSIVE DESIGN (BREAKPOINTS)
    ========================================= */
 @media (max-width: 1100px) {
     .location-card { flex: 1 1 calc(50% - 1.5rem); height: 35vh; }
@@ -373,3 +734,4 @@ body {
     .section-title { margin-bottom: 1rem; }
     .location-card { height: 200px; }
 }
+
