@@ -1,79 +1,78 @@
-/* =========================================
-   1. VARIABELEN & BASIS INSTELLINGEN
-   ========================================= */
+/* =====================================================
+   FUTURISTIC THEME — M+S TYRE EXPERT
+   ===================================================== */
+
+/* =====================================================
+   1. VARIABELEN
+   ===================================================== */
 :root {
-    --primary: #eb5e28;    /* M+S Oranje */
-    --dark: #121212;       /* Diepzwart */
-    --grey-card: #1a1a1a;  /* Kaart achtergrond */
-    --grey-table: rgba(37, 37, 37, 0.6); /* Transparant voor glas-effect */
-    --white: #ffffff;
-    --shadow: 0 10px 30px rgba(0,0,0,0.5);
+    --primary:        #eb5e28;
+    --primary-bright: #ff6e35;
+    --primary-glow:   rgba(235, 94, 40, 0.38);
+    --primary-ghost:  rgba(235, 94, 40, 0.07);
+
+    --dark:           #000000;
+    --surface:        #0a0a0a;
+    --surface-2:      #111111;
+    --surface-3:      #181818;
+
+    --border:         rgba(255, 255, 255, 0.055);
+    --border-accent:  rgba(235, 94, 40, 0.22);
+    --border-hot:     rgba(235, 94, 40, 0.55);
+
+    --white:          #ffffff;
+    --muted:          rgba(255, 255, 255, 0.42);
+    --muted-up:       rgba(255, 255, 255, 0.68);
+
+    --shadow-sm:      0 4px 20px rgba(0, 0, 0, 0.5);
+    --shadow-md:      0 14px 44px rgba(0, 0, 0, 0.65);
+    --shadow-lg:      0 32px 80px rgba(0, 0, 0, 0.85);
+    --glow-sm:        0 0 16px var(--primary-glow);
+    --glow-md:        0 0 32px var(--primary-glow), 0 0 80px rgba(235,94,40,0.12);
+
+    --r-sm:    5px;
+    --r-md:    10px;
+    --r-lg:    16px;
+    --r-full:  999px;
+
+    --ease:    cubic-bezier(0.4, 0, 0.2, 1);
+    --spring:  cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-* {
+/* =====================================================
+   2. RESET & BASE
+   ===================================================== */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background-color: var(--dark);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--dark);
     color: var(--white);
     overflow: hidden;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* =========================================
-   2. LANGUAGE SWITCHER (Fixed top right)
-   ========================================= */
-.lang-switcher {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    display: flex;
-    gap: 8px;
-    background: rgba(0,0,0,0.7);
-    padding: 8px;
-    border-radius: 30px;
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255,255,255,0.1);
-    box-shadow: var(--shadow);
-}
-
-.lang-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 0.75rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    transition: all 0.3s ease;
-}
-
-.lang-btn.active {
-    background: var(--primary);
-    box-shadow: 0 0 10px rgba(235, 94, 40, 0.4);
-}
-
-.lang-btn:hover:not(.active) {
-    background: rgba(255,255,255,0.1);
-}
-
-/* =========================================
-   3. SCROLL SNAP STRUCTUUR
-   ========================================= */
+/* =====================================================
+   3. SCROLL CONTAINER
+   ===================================================== */
 .scroll-container {
     height: 100dvh;
     overflow-y: scroll;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    /* Subtiele mesh gradient achtergrond voor de hele site */
-    background: radial-gradient(circle at 20% 30%, #1a1a1a 0%, #0a0a0a 100%);
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
 }
+
+.scroll-container::-webkit-scrollbar       { width: 3px; }
+.scroll-container::-webkit-scrollbar-track { background: transparent; }
+.scroll-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
 
 .full-page {
     min-height: 100dvh;
@@ -88,490 +87,113 @@ body {
     position: relative;
 }
 
-/* =========================================
-   4. HERO SECTIE (Met Vignette)
-   ========================================= */
-.hero {
-    background:
-            linear-gradient(rgba(0,0,0,0.2), rgba(18,18,18,1)),
-            url('images/msbandencentrale.png') center/cover no-repeat;
+/* =====================================================
+   4. PRELOADER
+   ===================================================== */
+#preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--dark);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.7s var(--ease), visibility 0.7s;
 }
 
-.logo-main {
-    font-size: clamp(2.5rem, 10vw, 5.5rem);
-    text-transform: uppercase;
-    font-weight: 900;
-    line-height: 1;
-    margin-bottom: 1rem;
-    text-shadow: 0 5px 15px rgba(0,0,0,0.5);
+.loader-content {
+    text-align: center;
+    width: 240px;
 }
 
-.logo-main span {
-    color: var(--primary);
-}
-
-.hero-slogan {
-    font-size: clamp(1rem, 4vw, 1.8rem);
-    font-weight: 300;
-    opacity: 0.9;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-}
-
-.subtle-num { color: var(--primary); font-weight: 700; }
-
-/* =========================================
-   5. VESTIGINGEN (MODERN CARDS)
-   ========================================= */
-.locations-bg {
-    background-color: #0f0f0f;
-    /* Subtiel industrieel patroon */
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23eb5e28' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-.section-title {
-    margin-bottom: 2.5rem;
-    font-size: clamp(1.8rem, 6vw, 3rem);
-    text-transform: uppercase;
+.loader-content .logo-main {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.8rem;
     letter-spacing: 2px;
-    text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    text-shadow: var(--glow-md);
+    animation: logoPulse 1.8s ease infinite;
 }
 
-.flex-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    width: 100%;
-    max-width: 1300px;
-    justify-content: center;
+@keyframes logoPulse {
+    0%, 100% { text-shadow: 0 0 18px var(--primary-glow), 0 0 50px rgba(235,94,40,0.1); }
+    50%       { text-shadow: 0 0 30px var(--primary-glow), 0 0 90px rgba(235,94,40,0.25); }
 }
 
-.location-card {
-    flex: 1 1 calc(25% - 1.5rem);
-    min-width: 280px;
-    height: 50vh;
-    background-size: cover;
-    background-position: center; /* Focus op rechterkant van foto */
-    border-radius: 15px;
-    overflow: hidden;
+.loading-bar {
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-}
-
-.location-card:hover {
-    transform: scale(1.03) translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-}
-
-.status-tag {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    padding: 6px 14px;
-    border-radius: 25px;
-    font-size: 0.7rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    z-index: 10;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(transparent 20%, rgba(0,0,0,0.95));
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 2rem;
-}
-
-.card-info h3 { font-size: 1.8rem; margin-bottom: 0.3rem; letter-spacing: 1px; }
-.card-info p { font-size: 1rem; opacity: 0.7; margin-bottom: 1.2rem; }
-
-.card-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-.btn-card {
-    flex: 1;
-    display: inline-block;
-    padding: 12px 5px;
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    transition: all 0.3s;
-    text-align: center;
-    border: none;
-}
-
-.btn-maps {
-    background: var(--white);
-    color: var(--dark);
-}
-
-.btn-card:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-}
-
-/* =========================================
-   6. PRIJSLIJST (GLASSMORPHISM)
-   ========================================= */
-.prices-bg { background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%); }
-
-.price-container {
     width: 100%;
-    max-width: 850px;
-    background: var(--grey-table);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 2.5rem;
-    border-radius: 20px;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-}
-
-.price-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
-
-.tab-btn {
-    padding: 12px 28px;
-    background: transparent;
-    border: 2px solid var(--primary);
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 50px;
-    transition: 0.3s;
-    text-transform: uppercase;
-}
-
-.tab-btn.active {
-    background: var(--primary);
-    box-shadow: 0 5px 15px rgba(235, 94, 40, 0.3);
-}
-
-.tab-content { display: none; }
-.tab-content.active { display: block; animation: fadeIn 0.5s ease; }
-
-.price-table {
-    width: 100%;
-    min-width: 400px;
-    border-collapse: collapse;
-}
-
-.price-table th, .price-table td {
-    padding: 1.2rem 1rem;
-    text-align: left;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-
-.price-table th {
-    color: var(--primary);
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
-
-.price-note {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-    opacity: 0.5;
-    font-style: italic;
-}
-
-/* =========================================
-   7. FOOTER SECTIE
-   ========================================= */
-.footer-section {
-    background: #0a0a0a;
-    border-top: 1px solid rgba(235, 94, 40, 0.2);
-}
-
-.company-details { margin: 2rem 0; }
-.company-details p { margin-bottom: 0.5rem; font-size: 1rem; opacity: 0.8; }
-
-.footer-email a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.footer-email a:hover { text-decoration: underline; }
-
-.site-footer {
-    margin-top: 2rem;
-    font-size: 0.75rem;
-    opacity: 0.3;
-    letter-spacing: 1px;
-}
-
-/* =========================================
-   8. ANIMATIES & INDICATORS
-   ========================================= */
-.scroll-wrapper { margin-top: 3rem; }
-.scroll-text {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    opacity: 0.6;
-    animation: pulse 2s infinite;
-}
-
-.arrow {
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid var(--primary);
-    border-bottom: 2px solid var(--primary);
-    transform: rotate(45deg);
-    margin: 1rem auto;
-    animation: bounce 2s infinite;
-}
-
-     /* Styling voor de Merken Sectie */
- .brands-section {
-     background: #161616;
-     padding: 60px 20px;
- }
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 40px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
-}
-.brand-item {
-    width: 120px;
-    height: auto;
-    opacity: 0.6;
-    filter: grayscale(1) invert(1); /* Zorgt dat zwarte logo's wit worden voor je donkere thema */
-    transition: all 0.4s ease;
-}
-.brand-item:hover {
-    opacity: 1;
-    filter: grayscale(0) invert(0); /* Toont originele kleuren bij hover */
-    transform: scale(1.1);
-}
-.camionetten-box {
-    margin-top: 25px;
-    padding: 15px;
-    border: 2px dashed var(--primary);
-    border-radius: 12px;
-    background: rgba(235, 94, 40, 0.05);
-    color: var(--white);
-    font-weight: 800;
-    text-transform: uppercase;
-}
-/* Tabel scroll fix voor mobiel */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-/* =========================================
-   10. MERKEN & PRIJSLIJST EXTRA'S
-   ========================================= */
-
-/* De Merken Sectie styling */
-.brands-section {
-    background: #111111; /* Iets donkerder dan de rest voor contrast */
-    padding: 60px 20px;
-    width: 100%;
-}
-
-.brands-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-    gap: 40px;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    align-items: center;
-    justify-items: center;
-}
-
-.brand-item {
-    width: 120px;
-    height: auto;
-    opacity: 0.6;
-    /* Invert zorgt dat zwarte logo's wit worden op je donkere achtergrond */
-    filter: grayscale(1) invert(1) brightness(1.5);
-    transition: all 0.4s ease;
-}
-
-.brand-item:hover {
-    opacity: 1;
-    filter: grayscale(0) invert(0) brightness(1); /* Terug naar originele kleur */
-    transform: scale(1.1);
-}
-
-/* De Camionetten Box binnen de prijslijst */
-.camionetten-box {
-    margin-top: 25px;
-    padding: 15px;
-    border: 2px dashed var(--primary);
-    border-radius: 12px;
-    background: rgba(235, 94, 40, 0.05);
-    color: var(--white);
-    font-weight: 800;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1px;
-    animation: fadeIn 0.8s ease;
-}
-
-/* Extra responsive fix voor de tabellen op mobiel */
-.table-responsive {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    margin-bottom: 10px;
-}
-
-.minimal-info-section { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem; }
-.minimal-row { font-size: 0.9rem; margin-bottom: 5px; opacity: 0.8; }
-.orange-text { color: var(--primary); font-weight: bold; opacity: 1; }
-
-@media (max-width: 600px) {
-    .minimal-row {
-        font-size: 0.8rem;
-    }
-}
-
-/* Kleine aanpassing voor de prijslijst container op kleine schermen */
-@media (max-width: 650px) {
-    .brands-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 logo's naast elkaar op mobiel */
-        gap: 20px;
-    }
-    .brand-item {
-        width: 100px;
-    }
-}
-
-
-@keyframes pulse { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) rotate(45deg); }
-    40% { transform: translateY(10px) rotate(45deg); }
-}
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-
-/* =========================================
-   11. INTERACTIEVE UPGRADES (TOEVOEGINGEN)
-   ========================================= */
-
-/* Subtiele glans-animatie voor de actieve tab en knoppen */
-.lang-btn.active, .tab-btn.active, .btn-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.lang-btn.active::after, .tab-btn.active::after, .btn-card::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -60%;
-    width: 20%;
-    height: 200%;
-    background: rgba(255, 255, 255, 0.2);
-    transform: rotate(30deg);
-    /* Verander 'dashed' naar 'ease' of verwijder het */
-    transition: all 0.6s ease;
-    animation: shine 4s infinite linear;
-}
-
-@keyframes shine {
-    0% { left: -60%; }
-    20% { left: 120%; }
-    100% { left: 120%; }
-}
-
-/* Interactie voor de Locatie Kaarten */
-.location-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border: 2px solid var(--primary);
-    border-radius: 15px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.location-card:hover::before {
-    opacity: 0.5;
-}
-
-/* Link-hover effect voor de e-mail in de footer */
-.footer-email a {
-    position: relative;
-    display: inline-block;
-}
-
-.footer-email a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    transform: scaleX(0);
     height: 2px;
-    bottom: -2px;
-    left: 0;
-    background-color: var(--primary);
-    transform-origin: bottom right;
-    transition: transform 0.25s ease-out;
+    background: rgba(255,255,255,0.06);
+    margin-top: 18px;
+    border-radius: 2px;
+    overflow: hidden;
 }
 
-.footer-email a:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
+.loading-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--primary), var(--primary-bright), var(--primary));
+    background-size: 200% 100%;
+    animation: loadProgress 1.5s var(--ease) forwards, shimmer 1s linear infinite;
+    transform: translateX(-100%);
+    border-radius: 2px;
 }
 
-/* Klik-effect voor alle knoppen (Active state) */
-.btn-card:active, .tab-btn:active, .lang-btn:active {
-    transform: scale(0.95);
-    filter: brightness(0.9);
+@keyframes loadProgress { to { transform: translateX(0); } }
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+.loaded { opacity: 0; visibility: hidden; }
+
+/* =====================================================
+   5. LANGUAGE SWITCHER
+   ===================================================== */
+.lang-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    display: flex;
+    gap: 2px;
+    background: rgba(7, 8, 15, 0.9);
+    padding: 4px;
+    border-radius: var(--r-full);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--border-accent);
+    box-shadow: var(--shadow-sm), inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
-/* Scroll-snap verbetering: Smooth focus */
-.full-page {
-    transition: opacity 0.8s ease, transform 0.8s ease;
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.58rem;
+    letter-spacing: 1px;
+    padding: 7px 14px;
+    border-radius: var(--r-full);
+    transition: all 0.25s var(--ease);
 }
 
-/* Extra touch voor de prijs-tabel rijen */
-.price-table tr:hover td {
-    background: rgba(235, 94, 40, 0.05);
-    color: var(--primary);
-    transition: all 0.2s ease;
+.lang-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: var(--glow-sm);
 }
 
-/* Maak de "status-tag" kloppend (Pulse effect voor 'Open') */
-.status-tag {
-    animation: pulse-border 2s infinite;
+.lang-btn:hover:not(.active) {
+    background: rgba(235, 94, 40, 0.1);
+    color: var(--white);
 }
 
-@keyframes pulse-border {
-    0% { box-shadow: 0 0 0 0 rgba(235, 94, 40, 0.4); }
-    70% { box-shadow: 0 0 0 10px rgba(235, 94, 40, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(235, 94, 40, 0); }
-}
+.lang-btn:active { transform: scale(0.94); }
 
+/* =====================================================
+   6. NAV DOTS — vertical bar indicator
+   ===================================================== */
 .nav-dots {
     position: fixed;
     right: 20px;
@@ -579,160 +201,926 @@ body {
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    align-items: center;
+    gap: 14px;
     z-index: 1000;
 }
 
+/* Connecting trace line */
+.nav-dots::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    transform: translateX(-50%);
+    background: linear-gradient(to bottom, transparent, var(--border-accent) 30%, var(--border-accent) 70%, transparent);
+    pointer-events: none;
+}
+
 .dot {
-    width: 12px;
-    height: 12px;
-    background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: all 0.3s ease;
+    width: 6px;
+    height: 6px;
+    background: rgba(235, 94, 40, 0.2);
+    border: 1px solid var(--border-accent);
+    border-radius: 3px;
+    transition: all 0.35s var(--ease);
     cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 1;
 }
 
 .dot:hover {
-    background: rgba(235, 94, 40, 0.5); /* Oranje gloed */
+    background: rgba(235, 94, 40, 0.45);
+    border-color: var(--primary);
 }
 
+/* Active dot expands into a glowing vertical bar */
 .dot.active {
+    width: 3px;
+    height: 22px;
+    border-radius: 2px;
     background: var(--primary);
-    transform: scale(1.3);
-    box-shadow: 0 0 10px rgba(235, 94, 40, 0.6);
+    border-color: var(--primary);
+    box-shadow: var(--glow-sm);
 }
 
-#preloader {
-    position: fixed;
+/* =====================================================
+   7. HERO
+   ===================================================== */
+.hero {
+    background:
+        linear-gradient(to bottom,
+            rgba(7, 8, 15, 0.2)  0%,
+            rgba(7, 8, 15, 0.55) 55%,
+            var(--dark)          100%),
+        url('images/msbandencentrale.png') center / cover no-repeat;
+}
+
+/* Futuristic grid overlay */
+.hero::before {
+    content: '';
+    position: absolute;
     inset: 0;
-    background: #000;
-    z-index: 9999;
+    background-image:
+        linear-gradient(rgba(235, 94, 40, 0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(235, 94, 40, 0.045) 1px, transparent 1px);
+    background-size: 55px 55px;
+    mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.5) 70%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0.5) 70%, transparent);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: heroEntrance 0.9s var(--ease) 1.6s both;
+}
+
+@keyframes heroEntrance {
+    from { opacity: 0; transform: translateY(35px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.logo-main {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.5rem, 9vw, 5.2rem);
+    text-transform: uppercase;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 1.2rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 40px rgba(235,94,40,0.25), 0 4px 24px rgba(0,0,0,0.8);
+}
+
+.logo-main span {
+    color: var(--primary);
+    text-shadow: var(--glow-md);
+}
+
+.hero-slogan {
+    font-size: clamp(0.9rem, 3vw, 1.45rem);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1.5px;
+    text-shadow: 0 2px 14px rgba(0,0,0,0.95);
+}
+
+.subtle-num  { color: var(--primary); font-weight: 700; }
+.subtle-text { opacity: 0.65; letter-spacing: 1px; }
+
+.scroll-wrapper {
+    margin-top: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.scroll-text {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.52rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--muted);
+    animation: pulse 2.5s ease infinite;
+}
+
+.arrow {
+    width: 9px;
+    height: 9px;
+    border-right: 1.5px solid var(--primary);
+    border-bottom: 1.5px solid var(--primary);
+    transform: rotate(45deg);
+    filter: drop-shadow(0 0 4px var(--primary));
+    animation: bounce 2.5s ease infinite;
+}
+
+/* =====================================================
+   8. SECTION TITLES
+   ===================================================== */
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    margin-bottom: 2.5rem;
+    font-size: clamp(1.3rem, 4.5vw, 2.4rem);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 0 30px rgba(235,94,40,0.15);
+}
+
+.section-title::before {
+    content: '// ';
+    color: var(--primary);
+    opacity: 0.5;
+    font-size: 0.7em;
+    letter-spacing: 0;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), transparent);
+    margin: 0.9rem auto 0;
+    box-shadow: var(--glow-sm);
+}
+
+/* =====================================================
+   9. VESTIGINGEN
+   ===================================================== */
+.locations-bg {
+    background-color: var(--surface);
+    background-image:
+        linear-gradient(rgba(235, 94, 40, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(235, 94, 40, 0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 1280px;
+    justify-content: center;
+}
+
+/* ─── Location card ─── */
+.location-card {
+    flex: 1 1 calc(25% - 1.25rem);
+    min-width: 260px;
+    height: 48vh;
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid var(--border-accent);
+    box-shadow: var(--shadow-md);
+    transition:
+        transform    0.45s var(--spring),
+        box-shadow   0.45s var(--ease),
+        opacity      0.65s var(--ease),
+        border-color 0.3s  var(--ease);
+}
+
+.location-card:hover {
+    transform: translateY(-10px) scale(1.022);
+    border-color: var(--border-hot);
+    box-shadow: var(--shadow-lg), var(--glow-md);
+}
+
+/* HUD corner brackets — top-left */
+.location-card::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 18px;
+    height: 18px;
+    border-top: 2px solid var(--primary);
+    border-left: 2px solid var(--primary);
+    border-radius: 2px 0 0 0;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    transform: translate(-4px, -4px);
+    z-index: 6;
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+/* HUD corner brackets — bottom-right */
+.location-card::after {
+    content: '';
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 18px;
+    height: 18px;
+    border-bottom: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    border-radius: 0 0 2px 0;
+    opacity: 0;
+    transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+    transform: translate(4px, 4px);
+    z-index: 6;
+    pointer-events: none;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+.location-card:hover::before {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+.location-card:hover::after {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Card gradient overlay */
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent          20%,
+        rgba(7,  8, 15, 0.6) 55%,
+        rgba(7,  8, 15, 0.97) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.75rem;
+    overflow: hidden;
+}
+
+/* Scan sweep on hover */
+.card-overlay::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 60%;
+    background: linear-gradient(to bottom, transparent, rgba(235,94,40,0.06), transparent);
+    transform: translateY(-120%);
+    transition: transform 0.75s var(--ease);
+    pointer-events: none;
+}
+
+.location-card:hover .card-overlay::before {
+    transform: translateY(220%);
+}
+
+.card-info h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 20px rgba(235,94,40,0.2);
+}
+
+.card-info p {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+    letter-spacing: 0.2px;
+}
+
+.card-buttons { display: flex; gap: 8px; }
+
+/* Chamfered corner button */
+.btn-card {
+    flex: 1;
+    display: inline-block;
+    padding: 11px 6px;
+    background: var(--primary);
+    color: var(--white);
+    text-decoration: none;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%);
+    transition: filter 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+.btn-maps {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+}
+
+.btn-card:hover  {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--primary-glow);
+}
+.btn-card:active { transform: scale(0.95); filter: brightness(0.88); }
+
+/* ─── Status tag ─── */
+.status-tag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: opacity 0.5s ease, visibility 0.5s;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 3px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    z-index: 10;
+    color: var(--white);
+    background: rgba(34, 197, 94, 0.15);
+    border: 1px solid rgba(34, 197, 94, 0.45);
+    backdrop-filter: blur(8px);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%);
 }
 
-.loader-content { text-align: center; }
-
-.loading-bar {
-    width: 0;
-    height: 3px;
-    background: var(--primary);
-    margin-top: 10px;
-    animation: loadProgress 1.5s ease-in-out forwards;
+/* Blinking status dot */
+.status-tag::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #22c55e;
+    flex-shrink: 0;
+    animation: blink 1.6s ease infinite;
 }
 
-@keyframes loadProgress {
-    0% { width: 0; }
-    100% { width: 100%; }
+@keyframes blink {
+    0%, 100% { opacity: 1; box-shadow: 0 0 6px #22c55e; }
+    50%       { opacity: 0.2; box-shadow: none; }
 }
 
-/* Klasse om te verbergen via JS */
-.loaded {
+/* ─── Scroll reveal ─── */
+.reveal { opacity: 0; }
+.reveal.visible { opacity: 1; }
+.flex-container .reveal:nth-child(1) { transition-delay: 0s;   }
+.flex-container .reveal:nth-child(2) { transition-delay: 0.1s; }
+.flex-container .reveal:nth-child(3) { transition-delay: 0.2s; }
+.flex-container .reveal:nth-child(4) { transition-delay: 0.3s; }
+
+/* ─── Coming soon ─── */
+.coming-soon-card {
+    filter: saturate(0.35) brightness(0.75);
+}
+
+.coming-soon-card:hover {
+    filter: saturate(0.35) brightness(0.85);
+    transform: none;
+    box-shadow: var(--shadow-md);
+    border-color: var(--border-accent);
+}
+
+.coming-soon-card:hover::before,
+.coming-soon-card:hover::after {
     opacity: 0;
-    visibility: hidden;
 }
+
+.coming-soon-tag {
+    background: rgba(107, 114, 128, 0.15) !important;
+    border-color: rgba(107, 114, 128, 0.4) !important;
+    animation: none !important;
+}
+
+.coming-soon-tag::before {
+    background: #6b7280 !important;
+    animation: none !important;
+    opacity: 0.6;
+}
+
+.btn-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* =====================================================
+   10. MERKEN & PRIJZEN
+   ===================================================== */
+.prices-bg {
+    background: var(--surface);
+    background-image:
+        radial-gradient(rgba(235, 94, 40, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+}
+
+.price-container {
+    width: 100%;
+    max-width: 820px;
+    background: rgba(11, 13, 24, 0.85);
+    backdrop-filter: blur(28px);
+    -webkit-backdrop-filter: blur(28px);
+    border: 1px solid var(--border-accent);
+    padding: 2.5rem;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.04);
+    position: relative;
+}
+
+/* Subtle corner accent */
+.price-container::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px;
+    width: 28px; height: 28px;
+    border-top: 2px solid var(--primary);
+    border-left: 2px solid var(--primary);
+    border-radius: var(--r-md) 0 0 0;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+.price-container::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 28px; height: 28px;
+    border-bottom: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    border-radius: 0 0 var(--r-md) 0;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+/* Brand badges */
+.brands-grid {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin-bottom: 2rem !important;
+}
+
+.brand-item {
+    padding: 5px 14px;
+    background: var(--surface-2);
+    border: 1px solid var(--border-accent);
+    border-radius: 3px;
+    font-family: 'Orbitron', sans-serif !important;
+    font-size: 0.55rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    color: var(--muted) !important;
+    text-transform: uppercase;
+    transition: all 0.25s var(--ease);
+    cursor: default;
+    filter: none !important;
+    opacity: 1 !important;
+    width: auto !important;
+    height: auto !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%);
+}
+
+.brand-item:hover {
+    background: var(--primary-ghost) !important;
+    border-color: var(--primary) !important;
+    color: var(--white) !important;
+    box-shadow: var(--glow-sm) !important;
+    transform: translateY(-2px);
+}
+
+/* Segmented tab control */
+.price-tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 2rem;
+    background: rgba(7, 8, 15, 0.7);
+    padding: 4px;
+    border-radius: 5px;
+    border: 1px solid var(--border-accent);
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 10px 16px;
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.62rem;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    transition: all 0.25s var(--ease);
+    text-transform: uppercase;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: var(--glow-sm);
+}
+
+.tab-btn:hover:not(.active) {
+    background: rgba(235, 94, 40, 0.08);
+    color: var(--white);
+}
+
+.tab-btn:active { transform: scale(0.97); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.35s var(--ease); }
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 8px;
+}
+
+.price-table {
+    width: 100%;
+    min-width: 300px;
+    border-collapse: collapse;
+}
+
+.price-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    text-transform: uppercase;
+    font-size: 0.58rem;
+    letter-spacing: 2px;
+    border-bottom: 1px solid var(--border-accent);
+}
+
+.price-table td {
+    padding: 0.95rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.92rem;
+    transition: background 0.2s ease;
+}
+
+.price-table tbody tr:last-child td { border-bottom: none; }
+
+.price-table td:last-child {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-shadow: 0 0 12px var(--primary-glow);
+    font-variant-numeric: tabular-nums;
+}
+
+.price-table tr:hover td {
+    background: rgba(235, 94, 40, 0.05);
+}
+
+.camionetten-box {
+    margin-top: 1.5rem;
+    padding: 12px 20px;
+    border: 1px dashed var(--border-accent);
+    border-radius: var(--r-sm);
+    background: var(--primary-ghost);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted-up);
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%);
+}
+
+.minimal-info-section {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.minimal-row  { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.2px; }
+.orange-text  { color: var(--primary); font-weight: 600; text-shadow: 0 0 10px var(--primary-glow); }
+
+/* =====================================================
+   11. FOOTER
+   ===================================================== */
+.footer-section {
+    background: var(--dark);
+    border-top: 1px solid var(--border-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background dot pattern */
+.footer-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(235, 94, 40, 0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+}
+
+.final-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 660px;
+}
+
+.company-details {
+    margin: 1.75rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.company-details p {
+    font-size: 0.87rem;
+    color: rgba(255, 255, 255, 0.58);
+    line-height: 1.5;
+}
+
+.company-details strong {
+    color: var(--white);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 16px rgba(235,94,40,0.15);
+}
+
 .about-text {
-    max-width: 600px;
-    margin: 1.5rem auto;
+    max-width: 540px;
+    margin: 0.5rem auto;
     font-style: italic;
-    line-height: 1.8;
-    opacity: 0.9;
-    font-size: 0.95rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.52);
+    font-size: 0.87rem;
 }
+
+.footer-email a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 0 12px var(--primary-glow);
+    transition: text-shadow 0.25s;
+}
+
+.footer-email a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background: var(--primary);
+    transform-origin: right;
+    transition: transform 0.25s var(--ease);
+    box-shadow: var(--glow-sm);
+}
+
+.footer-email a:hover { text-shadow: var(--glow-md); }
+.footer-email a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.site-footer {
+    margin-top: 1.75rem;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.58rem;
+    color: rgba(255, 255, 255, 0.18);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .legal-links {
     margin-top: 10px;
-    font-size: 0.7rem;
-    opacity: 0.5;
+    font-size: 0.64rem;
+    color: rgba(255, 255, 255, 0.25);
 }
-.legal-links a {
-    color: white;
-    text-decoration: none;
-}
-.legal-links a:hover {
-    text-decoration: underline;
-}
-/* Zorg dat de modal zelf zichtbaar is als display op block staat */
+
+.legal-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+.legal-links a:hover { color: var(--primary); }
+
+/* =====================================================
+   12. MODALS
+   ===================================================== */
 .modal {
     display: none;
     position: fixed;
-    z-index: 3000; /* Hoger dan de nav-dots */
+    z-index: 3000;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
+    background: rgba(4, 5, 10, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     overflow-y: auto;
 }
 
-/* De witte/grijze box in het midden */
 .modal-content {
-    background-color: #1a1a1a;
-    margin: 5% auto;
-    padding: 30px;
-    border: 1px solid var(--primary);
+    background: var(--surface-2);
+    margin: 6% auto;
+    padding: 2.5rem;
+    border: 1px solid var(--border-accent);
     width: 90%;
-    max-width: 600px;
-    border-radius: 15px;
+    max-width: 580px;
+    border-radius: var(--r-lg);
     position: relative;
-    box-shadow: 0 0 30px rgba(0,0,0,0.5);
-    color: white;
+    box-shadow: var(--shadow-lg), var(--glow-sm);
+    animation: modalIn 0.35s var(--ease);
 }
 
-/* De sluitknop (X) */
-.close-modal-terms, .close-modal {
+/* Corner brackets on modal */
+.modal-content::before {
+    content: '';
     position: absolute;
-    top: 15px;
-    right: 20px;
-    color: var(--primary);
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
+    top: -1px; left: -1px;
+    width: 22px; height: 22px;
+    border-top: 2px solid var(--primary);
+    border-left: 2px solid var(--primary);
+    border-radius: var(--r-md) 0 0 0;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+.modal-content::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; right: -1px;
+    width: 22px; height: 22px;
+    border-bottom: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    border-radius: 0 0 var(--r-md) 0;
+    filter: drop-shadow(0 0 4px var(--primary));
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(-24px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0)     scale(1); }
+}
+
+.close-modal-terms,
+.close-modal {
+    position: absolute;
+    top: 18px;
+    right: 22px;
+    color: var(--muted);
+    font-size: 1.5rem;
     line-height: 1;
+    cursor: pointer;
+    font-weight: 300;
+    transition: color 0.2s, text-shadow 0.2s;
 }
 
-/* De container voor de tekst */
+.close-modal-terms:hover,
+.close-modal:hover { color: var(--primary); text-shadow: var(--glow-sm); }
+
+.modal-content h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.25rem;
+    padding-right: 2.5rem;
+    text-shadow: 0 0 20px rgba(235,94,40,0.15);
+}
+
 .terms-text-container {
-    margin-top: 20px;
     text-align: left;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    max-height: 60vh;
+    font-size: 0.87rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.65);
+    max-height: 55vh;
     overflow-y: auto;
-    padding-right: 10px;
+    padding-right: 12px;
 }
-/* Scrollbar styling voor modal */
-.terms-text-container::-webkit-scrollbar { width: 5px; }
-.terms-text-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
-/* =========================================
-   12. RESPONSIVE DESIGN (BREAKPOINTS)
-   ========================================= */
+.terms-text-container::-webkit-scrollbar       { width: 3px; }
+.terms-text-container::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
+
+/* =====================================================
+   13. WHATSAPP FAB
+   ===================================================== */
+.whatsapp-fab {
+    position: fixed;
+    bottom: 28px;
+    left: 28px;
+    width: 52px;
+    height: 52px;
+    background: #16a34a;
+    border: 1px solid rgba(34, 197, 94, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(22, 163, 74, 0.45);
+    transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    text-decoration: none;
+}
+
+.whatsapp-fab:hover {
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 8px 32px rgba(22, 163, 74, 0.6);
+}
+
+.whatsapp-fab svg { width: 26px; height: 26px; fill: white; }
+
+/* =====================================================
+   14. KEYFRAMES
+   ===================================================== */
+@keyframes pulse {
+    0%, 100% { opacity: 0.28; }
+    50%       { opacity: 0.75; }
+}
+
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0)  rotate(45deg); }
+    30%           { transform: translateY(8px) rotate(45deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* =====================================================
+   15. RESPONSIVE
+   ===================================================== */
 @media (max-width: 1100px) {
-    .location-card { flex: 1 1 calc(50% - 1.5rem); height: 35vh; }
+    .location-card { flex: 1 1 calc(50% - 1.25rem); height: 38vh; }
 }
 
-@media (max-width: 650px) {
-    .full-page { padding: 1.5rem; }
-    .location-card { flex: 1 1 100%; height: 280px; }
+@media (max-width: 700px) {
+    .full-page      { padding: 1.5rem 1.25rem; }
+    .location-card  { flex: 1 1 100%; height: 260px; }
+
     .flex-container {
         max-height: 70vh;
         overflow-y: auto;
-        padding: 10px;
-        scrollbar-width: none; /* Hide scrollbar for clean look */
+        padding: 8px;
+        scrollbar-width: none;
     }
     .flex-container::-webkit-scrollbar { display: none; }
-    .section-title { font-size: 1.6rem; margin-bottom: 1.5rem; }
-    .price-container { padding: 1.5rem; }
-    .tab-btn { padding: 10px 18px; font-size: 0.75rem; }
-    .price-table { min-width: 300px; }
+
+    .section-title     { margin-bottom: 1.5rem; }
+    .price-container   { padding: 1.5rem 1.25rem; }
+    .tab-btn           { padding: 9px 10px; font-size: 0.56rem; }
+    .price-table       { min-width: 280px; }
+    .price-table th,
+    .price-table td    { padding: 0.8rem 0.75rem; }
+    .lang-switcher     { top: 14px; right: 14px; }
+    .nav-dots          { right: 8px; }
+    .whatsapp-fab      { bottom: 20px; left: 20px; width: 46px; height: 46px; }
+    .minimal-row       { font-size: 0.74rem; }
+    .brands-grid       { gap: 6px !important; }
+}
+
+@media (max-width: 420px) {
+    .logo-main         { font-size: 2rem; letter-spacing: 1px; }
+    .price-tabs        { flex-direction: column; }
+    .card-info h3      { font-size: 1.15rem; }
 }
 
 @media (max-height: 700px) {
-    .logo-main { font-size: 2.5rem; }
-    .section-title { margin-bottom: 1rem; }
-    .location-card { height: 200px; }
+    .logo-main         { font-size: 2.2rem; }
+    .section-title     { margin-bottom: 1rem; }
+    .location-card     { height: 200px; }
+    .scroll-wrapper    { margin-top: 2rem; }
+    .hero-content      { animation-delay: 0.8s; }
 }
-

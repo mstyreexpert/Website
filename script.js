@@ -15,11 +15,11 @@ const translations = {
         th_size: "Maat",
         th_price: "Vanaf",
         camion_new: "Ook voor Camionetten: €75",
-        cam_used: "Ook voor Camionetten: €45",
+        camion_used: "Ook voor Camionetten: €45",
         price_note: "* Alle prijzen incl. BTW, montage, balanceren en Recytyre milieubijdrage. Herstelling vanaf €5.",
         service_repair_bar: "Bandenreparatie & Vervanging vanaf €5.",
         service_include_bar: "Alle prijzen incl. montage & balanceren.",
-        about_us: "M+S Tyre Expert is uw vertrouwde partner in Limburg voor alles wat met banden te maken heeft. Met 4 vestigingen en een passie voor perfectie garanderen wij u de veiligste wegkilometers tegen de beste prijs.",
+        about_us: "M+S Tyre Expert is uw vertrouwde partner in Limburg voor alles wat met banden te maken heeft. Met 3 vestigingen en een passie voor perfectie garanderen wij u de veiligste wegkilometers tegen de beste prijs.",
         privacy_link: "Privacybeleid",
         terms_link: "Algemene Voorwaarden",
         complaints_link: "Consumentenombudsdienst",
@@ -43,12 +43,12 @@ const translations = {
         th_size: "Taille",
         th_price: "À partir de",
         camion_new: "Aussi pour Camionnettes : €75",
-        cam_used: "Aussi pour Camionnettes : €45",
+        camion_used: "Aussi pour Camionnettes : €45",
         price_note: "* Tous les prix incl. TVA, montage, équilibrage et contribution environnementale Recytyre. Réparation à partir de €5.",
         privacy_text: "TYRE EXPERT SRL respecte votre vie privée. Nous collectons uniquement les données personnelles que vous fournissez volontairement (par e-mail ou téléphone). Celles-ci sont utilisées exclusivement pour nos services et la gestion de vos rendez-vous. Notre site utilise Google Maps ; en utilisant deze carte, Google peut placer des cookies conformément à sa propre politique de confidentialité. Vos données ne sont pas partagées avec des tiers. Vous avez un droit d'accès et de suppression.",
         service_repair_bar: "Réparation & Remplacement de pneus à partir de €5.",
         service_include_bar: "Tous les prix incluent le montage & l'équilibrage.",
-        about_us: "M+S Tyre Expert est votre partenaire de confiance dans le Limbourg pour tout ce qui concerne les pneus. Avec 4 succursales et une passion pour la perfection, nous vous garantissons les kilomètres les plus sûrs au meilleur prix.",
+        about_us: "M+S Tyre Expert est votre partenaire de confiance dans le Limbourg pour tout ce qui concerne les pneus. Avec 3 succursales et une passion pour la perfection, nous vous garantissons les kilomètres les plus sûrs au meilleur prix.",
         privacy_link: "Politique de confidentialité",
         terms_link: "Conditions Générales",
         complaints_link: "Service de Médiation pour le Consommateur",
@@ -72,12 +72,12 @@ const translations = {
         th_size: "Size",
         th_price: "From",
         camion_new: "Also for Vans: €75",
-        cam_used: "Also for Vans: €45",
+        camion_used: "Also for Vans: €45",
         price_note: "* All prices incl. VAT, mounting, balancing, and Recytyre environmental contribution. Repair from €5.",
         privacy_text: "TYRE EXPERT SRL respects your privacy. We only collect personal data that you voluntarily provide (via email or phone). This is used exclusively for our services and managing your appointments. Our website uses Google Maps; by using this map, Google may place cookies in accordance with their own privacy policy. Your data is not shared with third parties. You have the right to access and deletion.",
         service_repair_bar: "Tire Repair & Replacement from €5.",
         service_include_bar: "All prices incl. mounting & balancing.",
-        about_us: "M+S Tyre Expert is your trusted partner in Limburg for everything related to tires. With 4 locations and a passion for perfection, we guarantee you the safest road miles at the best price.",
+        about_us: "M+S Tyre Expert is your trusted partner in Limburg for everything related to tires. With 3 locations and a passion for perfection, we guarantee you the safest road miles at the best price.",
         privacy_link: "Privacy Policy",
         terms_link: "Terms & Conditions",
         complaints_link: "Consumer Mediation Service",
@@ -117,8 +117,9 @@ function updateStatusTags() {
     const isOpen = (day !== 0 && hour >= 9 && hour < 19);
 
     tags.forEach(tag => {
+        if (tag.classList.contains('coming-soon-tag')) return;
         tag.innerText = isOpen ? translations[currentLang].status_open : translations[currentLang].status_closed;
-        tag.style.background = isOpen ? "#4caf50" : "#e74c3c";
+        tag.style.background = isOpen ? "#22c55e" : "#e74c3c";
     });
 }
 
@@ -183,9 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Sluit modal
     span.onclick = () => modal.style.display = "none";
-    window.onclick = (event) => {
-        if (event.target == modal) modal.style.display = "none";
-    }
 
     const savedLang = localStorage.getItem('preferredLang') || 'nl';
     changeLanguage(savedLang);
@@ -216,4 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    // Scroll reveal voor kaarten
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    revealEls.forEach(el => revealObserver.observe(el));
 });
