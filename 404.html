@@ -42,6 +42,9 @@
       <li><a href="index.html#service">Veelgestelde vragen</a></li>
       <li><a href="privacy.html">Privacybeleid</a></li>
       <li><a href="voorwaarden.html">Algemene voorwaarden</a></li>
+      <!-- cookielink:start -->
+      <a href="#" data-cookie-settings>Cookies</a>
+      <!-- cookielink:end -->
     </ul>
   </div>
 </main>
@@ -56,8 +59,8 @@
   document.getElementById('year').textContent = String(new Date().getFullYear());
 </script>
 <!-- analytics:start -->
-<!-- Bezoekersstatistieken, zonder cookies. Zie analytics.json -->
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d908f0917e454e6b9615497e27fa226e"}'></script>
+<!-- Google Analytics, maar pas na toestemming. Zie consent.js -->
+<script src="consent.js" defer></script>
 <!-- analytics:end -->
 </body>
 </html>

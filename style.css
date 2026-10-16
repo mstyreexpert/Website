@@ -1374,6 +1374,72 @@ address { font-style: normal; }
 }
 .review-add-links .btn { flex: 1 1 auto; }
 
+/* 27 ------------------------------------------------- cookiebanner --- */
+.cookie-banner {
+  position: fixed;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 120;
+  max-width: 560px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--bg-2);
+  border: 1px solid var(--line-str);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+  animation: cookieOp 0.3s var(--ease) both;
+}
+@keyframes cookieOp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cookie-banner { animation: none; }
+}
+
+.cookie-titel {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  margin-bottom: 0.35rem;
+}
+.cookie-tekst p { color: var(--muted); font-size: var(--step--1); }
+.cookie-tekst a {
+  color: var(--brand);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  white-space: nowrap;
+}
+
+.cookie-knoppen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  justify-content: flex-end;
+}
+/* Weigeren moet even makkelijk zijn als accepteren: zelfde grootte,
+   zelfde kleur, zelfde aantal klikken. Alleen het opschrift verschilt. */
+.btn-keuze {
+  flex: 1 1 0;          /* beide even breed, los van de tekstlengte */
+  background: var(--bg-3);
+  border-color: var(--line-str);
+  color: var(--text);
+  font-size: var(--step-0);
+  padding: 0.75em 1.3em;
+}
+.btn-keuze:hover { border-color: var(--text); background: var(--bg); }
+
+/* Op een telefoon zit de belbalk onderaan; de banner gaat erboven staan
+   zodat hij de belknop nooit afdekt. */
+@media (max-width: 899px) {
+  .cookie-banner { bottom: calc(78px + var(--sp-2)); }
+  .cookie-knoppen .btn { flex: 1 1 45%; }
+}
+
 /* ------------------------------------------------------- breakpoints --- */
 @media (min-width: 560px) {
   .usp-grid   { grid-template-columns: repeat(3, 1fr); }
