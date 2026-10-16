@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="M+S Tyre Expert">
+  <rect width="64" height="64" rx="13" fill="#0A0B0F"/>
+  <circle cx="32" cy="32" r="21" fill="none" stroke="#EB5E28" stroke-width="7"/>
+  <circle cx="32" cy="32" r="8.5" fill="none" stroke="#EB5E28" stroke-width="4"/>
+  <g stroke="#0A0B0F" stroke-width="3.4" stroke-linecap="butt">
+    <path d="M32 7.5v9"/><path d="M32 47.5v9"/>
+    <path d="M7.5 32h9"/><path d="M47.5 32h9"/>
+    <path d="M14.7 14.7l6.4 6.4"/><path d="M42.9 42.9l6.4 6.4"/>
+    <path d="M49.3 14.7l-6.4 6.4"/><path d="M21.1 42.9l-6.4 6.4"/>
+  </g>
+</svg>

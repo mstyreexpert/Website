@@ -1,205 +1,757 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>M+S Tyre Expert | Uw Bandenspecialist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Banden &amp; winterbanden Genk, Hasselt, Sint-Truiden | M+S</title>
+<meta name="description" content="Zomer-, winter- en all-seasonbanden vanaf €25, incl. montage en balanceren. Drie vestigingen in Limburg: Genk, Hasselt en Sint-Truiden.">
+<link rel="canonical" href="https://mstyreexperts.com/">
+<meta name="theme-color" content="#0A0B0F">
+
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="nl_BE">
+<meta property="og:site_name" content="M+S Tyre Expert">
+<meta property="og:title" content="Banden &amp; winterbanden Genk, Hasselt, Sint-Truiden | M+S">
+<meta property="og:description" content="Nieuwe en jonge occasiebanden vanaf €25, incl. montage en balanceren. Drie vestigingen in Limburg.">
+<meta property="og:url" content="https://mstyreexperts.com/">
+<meta property="og:image" content="https://mstyreexperts.com/images/genk-1024.jpg">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="683">
+<meta property="og:image:alt" content="Vestiging van M+S Tyre Expert in Genk">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preload" as="image" href="images/genk-1536.webp" media="(min-width: 700px)" fetchpriority="high">
+<link rel="preload" as="image" href="images/genk-640.webp" media="(max-width: 699px)" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="fonts/archivo-latin.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="fonts/inter-latin.woff2" crossorigin>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="preloader">
-  <div class="loader-content">
-    <h2 class="logo-main" style="font-size: 2rem;">M+S <span>Tyre Expert</span></h2>
-    <div class="loading-bar"></div>
+
+<a class="skip-link" href="#main" data-i18n="skip_link">Naar hoofdinhoud</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand" aria-label="M+S Tyre Expert">
+      <span class="brand-mark">M+S</span>
+      <span class="brand-word">Tyre Expert</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Hoofdnavigatie">
+      <a href="#vestigingen" data-i18n="nav_locations">Vestigingen</a>
+      <a href="#prijzen" data-i18n="nav_prices">Prijzen</a>
+      <a href="#seizoen" data-i18n="nav_season">Seizoen</a>
+      <a href="#service" data-i18n="nav_service">Service</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switcher" role="group" aria-label="Taal / Langue / Language">
+        <button type="button" onclick="changeLanguage('nl')" class="lang-btn active" lang="nl">NL</button>
+        <button type="button" onclick="changeLanguage('fr')" class="lang-btn" lang="fr">FR</button>
+        <button type="button" onclick="changeLanguage('en')" class="lang-btn" lang="en">EN</button>
+      </div>
+      <a href="tel:089370557" class="btn btn-primary btn-header-call">
+        <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+        <span data-i18n="btn_call_now">Bel nu</span>
+      </a>
+    </div>
+
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</div>
 
-<div class="lang-switcher">
-  <button onclick="changeLanguage('nl')" class="lang-btn active">NL</button>
-  <button onclick="changeLanguage('fr')" class="lang-btn">FR</button>
-  <button onclick="changeLanguage('en')" class="lang-btn">EN</button>
-</div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobiele navigatie">
+    <div class="mobile-nav-inner">
+      <a href="#vestigingen" data-i18n="nav_locations">Vestigingen</a>
+      <a href="#prijzen" data-i18n="nav_prices">Prijzen</a>
+      <a href="#seizoen" data-i18n="nav_season">Seizoen</a>
+      <a href="#service" data-i18n="nav_service">Service</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+      <div class="lang-switcher mobile-lang" role="group" aria-label="Taal / Langue / Language">
+        <button type="button" onclick="changeLanguage('nl')" class="lang-btn active" lang="nl">NL</button>
+        <button type="button" onclick="changeLanguage('fr')" class="lang-btn" lang="fr">FR</button>
+        <button type="button" onclick="changeLanguage('en')" class="lang-btn" lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+</header>
 
-<div class="scroll-container">
+<main id="main">
 
-  <section id="home" class="full-page hero">
-    <div class="hero-content">
-      <h1 class="logo-main">M+S <span>Tyre Expert</span></h1>
-      <p class="hero-slogan">
-        <span class="subtle-num">3</span> <span data-i18n="hero_locaties">locaties.</span>
-        <span class="subtle-text" data-i18n="hero_standaard">1 standaard: Perfectie.</span>
-      </p>
-      <div class="scroll-wrapper">
-        <span class="scroll-text" data-i18n="scroll_discover">Ontdek onze vestigingen</span>
-        <div class="arrow"></div>
+  <section class="hero" id="top">
+    <picture class="hero-img">
+      <source type="image/webp" media="(max-width: 699px)" srcset="images/genk-640.webp">
+      <source type="image/webp" srcset="images/genk-1024.webp 1024w, images/genk-1536.webp 1536w" sizes="100vw">
+      <img src="images/genk-1024.jpg" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+    </picture>
+
+    <div class="wrap hero-inner">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Bandencentrale in Limburg</p>
+      <h1 class="hero-title">
+        <span data-i18n="hero_title_1">Nieuwe en jonge occasiebanden</span>
+        <em data-i18n="hero_title_2">vanaf €35</em>
+        <span data-i18n="hero_title_3">gemonteerd en gebalanceerd</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">Drie vestigingen in Limburg. Binnenrijden kan meestal dezelfde dag nog — bel even voor je langskomt.</p>
+
+      <div class="hero-cta">
+        <a href="#vestigingen" class="btn btn-primary btn-lg">
+          <span data-i18n="btn_find_branch">Vind je vestiging</span>
+        </a>
+        <a href="#prijzen" class="btn btn-ghost btn-lg" data-i18n="btn_see_prices">Bekijk prijzen</a>
+      </div>
+
+      <ul class="hero-trust">
+        <li><strong data-i18n="trust_1_k">3</strong> <span data-i18n="trust_1_v">vestigingen</span></li>
+        <li><strong data-i18n="trust_2_k">Ma–Za</strong> <span data-i18n="trust_2_v">09:00 – 19:00</span></li>
+        <li><strong data-i18n="trust_3_k">Incl.</strong> <span data-i18n="trust_3_v">montage &amp; balanceren</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="usp-strip" aria-label="Onze voordelen">
+    <div class="wrap usp-grid">
+      <div class="usp reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.9-8 10-4.6-1.1-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4" class="tick"/></svg>
+        <h2 data-i18n="usp_1_t">Alle topmerken</h2>
+        <p data-i18n="usp_1_d">Michelin, Continental, Pirelli, Bridgestone, Goodyear en Hankook uit voorraad.</p>
+      </div>
+      <div class="usp reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" class="tick"/></svg>
+        <h2 data-i18n="usp_2_t">Meestal dezelfde dag</h2>
+        <p data-i18n="usp_2_d">Zes dagen per week open van 9 tot 19 uur. Even bellen en je staat erop.</p>
+      </div>
+      <div class="usp reveal">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10l9-6 9 6v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 21v-7h6v7" class="tick"/></svg>
+        <h2 data-i18n="usp_3_t">Geen verrassingen</h2>
+        <p data-i18n="usp_3_d">De prijs die je ziet is inclusief montage, balanceren en milieubijdrage.</p>
       </div>
     </div>
   </section>
 
+  <section class="section" id="vestigingen">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="eyebrow_locations">Waar vind je ons</p>
+        <h2 class="section-title" data-i18n="title_locations">Drie vestigingen in Limburg</h2>
+        <p class="section-lead" data-i18n="lead_locations">Kom langs in Genk, Hasselt of Sint-Truiden. Bel gerust vooraf, dan ligt je maat klaar.</p>
+      </header>
 
+      <div class="branch-grid">
 
-
-
-
-
-  <section id="locations" class="full-page locations-bg">
-    <h2 class="section-title" data-i18n="title_locations">Onze Vestigingen</h2>
-    <div class="flex-container">
-      <div class="location-card reveal" style="background-image: url('images/msbandencentrale.png');">
-        <div class="status-tag">Open</div>
-        <div class="card-overlay">
-          <div class="card-info">
-            <h3>Genk</h3>
-            <p>Hasseltweg 156, 3600 Genk</p>
-            <div class="card-buttons">
-              <a href="tel:089370557" class="btn-card" data-i18n="btn_call">Bel Nu</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=M+S+AUTOBANDEN+Hasseltweg+156+3600+Genk" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
+        <article class="branch reveal" data-open="09:00" data-close="19:00">
+          <div class="branch-media">
+            <picture>
+              <source type="image/webp" srcset="images/genk-640.webp 640w, images/genk-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 380px">
+              <img src="images/genk-640.jpg" alt="Vestiging van M+S Tyre Expert aan de Hasseltweg in Genk" width="640" height="427" loading="lazy" decoding="async">
+            </picture>
+            <span class="status" data-status aria-live="polite"><i></i><span data-status-text data-i18n="status_loading">Laden…</span></span>
+          </div>
+          <div class="branch-body">
+            <h3><a href="vestigingen/genk/">Genk</a></h3>
+            <address>
+              Hasseltweg 156<br>3600 Genk
+            </address>
+            <p class="branch-hours"><span data-i18n="hours_label">Ma–Za</span> 09:00 – 19:00</p>
+            <p class="branch-when" data-status-detail></p>
+            <p class="branch-phone"><a href="tel:089370557">089 37 05 57</a></p>
+            <div class="branch-actions">
+              <a href="tel:089370557" class="btn btn-primary btn-sm" data-i18n="btn_call">Bel nu</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=M+S+AUTOBANDEN+Hasseltweg+156+3600+Genk" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-i18n="btn_route">Route</a>
             </div>
+            <a class="branch-more" href="vestigingen/genk/" data-i18n="branch_more">Meer over deze vestiging →</a>
+          </div>
+        </article>
+
+        <article class="branch reveal" data-open="09:00" data-close="19:00">
+          <div class="branch-media">
+            <picture>
+              <source type="image/webp" srcset="images/hasselt-640.webp 640w, images/hasselt-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 380px">
+              <img src="images/hasselt-640.jpg" alt="Vestiging van M+S Tyre Expert aan de Sint-Truidersteenweg in Hasselt" width="640" height="360" loading="lazy" decoding="async">
+            </picture>
+            <span class="status" data-status aria-live="polite"><i></i><span data-status-text data-i18n="status_loading">Laden…</span></span>
+          </div>
+          <div class="branch-body">
+            <h3><a href="vestigingen/hasselt/">Hasselt</a></h3>
+            <address>
+              Sint-Truidersteenweg 420<br>3500 Hasselt
+            </address>
+            <p class="branch-hours"><span data-i18n="hours_label">Ma–Za</span> 09:00 – 19:00</p>
+            <p class="branch-when" data-status-detail></p>
+            <p class="branch-phone"><a href="tel:0480681985">0480 68 19 85</a></p>
+            <div class="branch-actions">
+              <a href="tel:0480681985" class="btn btn-primary btn-sm" data-i18n="btn_call">Bel nu</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Autobanden+Hasselt+Sint-Truidersteenweg+420+3500+Hasselt" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-i18n="btn_route">Route</a>
+            </div>
+            <a class="branch-more" href="vestigingen/hasselt/" data-i18n="branch_more">Meer over deze vestiging →</a>
+          </div>
+        </article>
+
+        <article class="branch reveal" data-open="09:00" data-close="19:00">
+          <div class="branch-media">
+            <picture>
+              <source type="image/webp" srcset="images/sint-truiden-640.webp 640w, images/sint-truiden-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 380px">
+              <img src="images/sint-truiden-640.jpg" alt="Vestiging van M+S Tyre Expert aan de Hasseltsesteenweg in Sint-Truiden" width="640" height="427" loading="lazy" decoding="async">
+            </picture>
+            <span class="status" data-status aria-live="polite"><i></i><span data-status-text data-i18n="status_loading">Laden…</span></span>
+          </div>
+          <div class="branch-body">
+            <h3><a href="vestigingen/sint-truiden/">Sint-Truiden</a></h3>
+            <address>
+              Hasseltsesteenweg 86<br>3800 Sint-Truiden
+            </address>
+            <p class="branch-hours"><span data-i18n="hours_label">Ma–Za</span> 09:00 – 19:00</p>
+            <p class="branch-when" data-status-detail></p>
+            <p class="branch-phone"><a href="tel:0467628747">0467 62 87 47</a></p>
+            <div class="branch-actions">
+              <a href="tel:0467628747" class="btn btn-primary btn-sm" data-i18n="btn_call">Bel nu</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Monthe-Cars+Hasseltsesteenweg+86+3800+Sint-Truiden" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-i18n="btn_route">Route</a>
+            </div>
+            <a class="branch-more" href="vestigingen/sint-truiden/" data-i18n="branch_more">Meer over deze vestiging →</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="prijzen">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="eyebrow_prices">Transparante tarieven</p>
+        <h2 class="section-title" data-i18n="title_prices">Wat kost jouw maat?</h2>
+        <p class="section-lead" data-i18n="lead_prices">Vanafprijs per band, inclusief montage, balanceren en Recytyre-bijdrage. Geen verborgen kosten.</p>
+      </header>
+
+      <div class="price-layout">
+
+        <div class="price-card reveal">
+          <div class="finder">
+            <p class="finder-q" data-i18n="finder_q">Kies je velgmaat</p>
+            <div class="finder-sizes" id="finderSizes" role="group" aria-label="Velgmaat"></div>
+            <div class="finder-out" id="finderOut" aria-live="polite"></div>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Soort banden">
+            <button type="button" role="tab" id="tab-nieuw" aria-controls="panel-nieuw" aria-selected="true" class="tab active" onclick="openTab(event, 'panel-nieuw')" data-i18n="tab_new">Nieuwe banden</button>
+            <button type="button" role="tab" id="tab-occasie" aria-controls="panel-occasie" aria-selected="false" class="tab" onclick="openTab(event, 'panel-occasie')" data-i18n="tab_used">Jonge occasie</button>
+          </div>
+
+          <div id="panel-nieuw" class="panel active" role="tabpanel" aria-labelledby="tab-nieuw">
+            <table class="price-table">
+              <caption class="sr-only" data-i18n="cap_new">Prijzen nieuwe banden</caption>
+              <thead><tr><th scope="col" data-i18n="th_size">Maat</th><th scope="col" data-i18n="th_price">Vanaf</th></tr></thead>
+              <tbody>
+                <tr><td>13" – 16"</td><td>€35</td></tr>
+                <tr><td>17"</td><td>€45</td></tr>
+                <tr><td>18"</td><td>€50</td></tr>
+                <tr><td>19"</td><td>€65</td></tr>
+                <tr><td>20" – 22"</td><td>€75</td></tr>
+              </tbody>
+            </table>
+            <p class="price-note" data-i18n="camion_new">Ook voor camionetten: €75</p>
+          </div>
+
+          <div id="panel-occasie" class="panel" role="tabpanel" aria-labelledby="tab-occasie" hidden>
+            <table class="price-table">
+              <caption class="sr-only" data-i18n="cap_used">Prijzen jonge occasiebanden</caption>
+              <thead><tr><th scope="col" data-i18n="th_size">Maat</th><th scope="col" data-i18n="th_price">Vanaf</th></tr></thead>
+              <tbody>
+                <tr><td>13" – 14"</td><td>€25</td></tr>
+                <tr><td>15" – 16"</td><td>€30</td></tr>
+                <tr><td>17" – 18"</td><td>€35</td></tr>
+                <tr><td>19" – 22"</td><td>€45</td></tr>
+              </tbody>
+            </table>
+            <p class="price-note" data-i18n="camion_used">Ook voor camionetten: €45</p>
+          </div>
+
+          <div class="price-foot">
+            <p data-i18n="price_repair">Bandenreparatie en vervanging vanaf €5.</p>
+            <p class="accent" data-i18n="price_incl">Alle prijzen incl. montage, balanceren en milieubijdrage.</p>
           </div>
         </div>
-      </div>
 
-<div class="location-card reveal" style="background-image: url('images/msbandenexpertshasselt.png');">
-        <div class="status-tag">Open</div>
-        <div class="card-overlay">
-          <div class="card-info">
-            <h3>Hasselt</h3>
-            <p>Sint-truidersteenweg 420, 3500 Hasselt</p>
-            <div class="card-buttons">
-              <a href="tel:0480681985" class="btn-card" data-i18n="btn_call">Bel Nu</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Autobanden+Hasselt+Sint-Truidersteenweg+420+3500+Hasselt" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
-            </div>
+        <aside class="size-help reveal" aria-labelledby="sizeHelpTitle">
+          <h3 id="sizeHelpTitle" data-i18n="size_title">Waar vind ik mijn maat?</h3>
+          <p class="size-lead" data-i18n="size_lead">Op de zijkant van je band staat een code. Zo lees je hem:</p>
+
+          <p class="size-code" aria-hidden="true">
+            <span class="sc sc-w">205</span><span class="sc-sep">/</span><span class="sc sc-h">55</span>
+            <span class="sc-sep">R</span><span class="sc sc-r">16</span>
+          </p>
+
+          <dl class="size-legend">
+            <div><dt class="sc-w">205</dt><dd data-i18n="size_width">Breedte in millimeter</dd></div>
+            <div><dt class="sc-h">55</dt><dd data-i18n="size_ratio">Hoogte, in procent van de breedte</dd></div>
+            <div><dt class="sc-r">16</dt><dd data-i18n="size_rim">Velgmaat in inch — dit getal heb je hierboven nodig</dd></div>
+          </dl>
+
+          <p class="size-note" data-i18n="size_note">Twijfel je? Bel ons met de code bij de hand, dan zoeken wij het uit.</p>
+          <a href="tel:089370557" class="btn btn-ghost btn-sm" data-i18n="btn_call">Bel nu</a>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="seizoen">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="eyebrow_season">Winter, zomer of all-season</p>
+        <h2 class="section-title" data-i18n="title_season">Welke banden horen onder je wagen?</h2>
+        <p class="section-lead" data-i18n="lead_season">Het hangt af van hoeveel je rijdt, waar je rijdt en hoe koud het wordt. Hier is het verschil, zonder verkooppraat.</p>
+      </header>
+
+      <div class="season-grid">
+
+        <article class="season reveal" id="winterbanden">
+          <div class="season-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg>
           </div>
-        </div>
+          <h3 data-i18n="season_w_t">Winterbanden</h3>
+          <p class="season-when" data-i18n="season_w_when">Ongeveer oktober tot april</p>
+          <p data-i18n="season_w_d">Het rubber blijft zacht onder 7 graden, waar een zomerband hard wordt en grip verliest. Het verschil merk je vooral bij remmen op een koude, natte weg — niet alleen in de sneeuw.</p>
+        </article>
+
+        <article class="season reveal" id="zomerbanden">
+          <div class="season-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M19.4 4.6l-2.1 2.1M6.7 17.3l-2.1 2.1"/></svg>
+          </div>
+          <h3 data-i18n="season_z_t">Zomerbanden</h3>
+          <p class="season-when" data-i18n="season_z_when">Ongeveer april tot oktober</p>
+          <p data-i18n="season_z_d">Boven 7 graden remmen ze korter en sturen ze preciezer dan eender welke andere band, droog én nat. Ze slijten ook trager bij warm weer.</p>
+        </article>
+
+        <article class="season reveal" id="allseason">
+          <div class="season-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 2.5v19"/><path d="M12 8.5a3.5 3.5 0 0 1 0 7"/><path d="M12 3.6V5m0 14v1.4M17.6 6.4l-1 1m-9.2 9.2l-1 1M20.4 12H19M5 12H3.6m14 5.6l-1-1M7.4 7.4l-1-1"/><path d="M8.4 6.6l-1.6 1.6M8.4 17.4l-1.6-1.6M4.4 9.6l2.2.6M4.4 14.4l2.2-.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="season_a_t">All-season</h3>
+          <p class="season-when" data-i18n="season_a_when">Het hele jaar door</p>
+          <p data-i18n="season_a_d">Eén stel dat het hele jaar meekan. Nooit zo goed als een echte winter- of zomerband in zijn eigen seizoen, maar voor wie weinig kilometers maakt en in de stad blijft, is het een prima keuze — en je moet nooit wisselen.</p>
+        </article>
+
       </div>
 
-      <div class="location-card reveal" style="background-image: url('images/msbandenexpertsinttruiden.jpg');">
-        <div class="status-tag">Open</div>
-        <div class="card-overlay">
-          <div class="card-info">
-            <h3>Sint-Truiden</h3>
-            <p>Hasseltsesteenweg 86, 3800 Sint-Truiden</p>
-            <div class="card-buttons">
-              <a href="tel:0467628747" class="btn-card" data-i18n="btn_call">Bel Nu</a>
-              <a href="https://www.google.com/maps/search/?api=1&query=Monthé-Cars+Hasseltsesteenweg+82+3800+Sint-Truiden" target="_blank" class="btn-card btn-maps" data-i18n="btn_route">Route</a>
-            </div>
+      <div class="season-note reveal">
+        <div>
+          <h3 data-i18n="swap_t">Seizoenswissel</h3>
+          <p data-i18n="swap_d">Twee keer per jaar je banden laten wisselen doen we terwijl je wacht. Bel even vooraf, want in oktober en april is het druk — dan zit je sneller aan de beurt.</p>
+          <p class="season-legal" data-i18n="swap_legal">In België zijn winterbanden niet verplicht. Rijd je naar Duitsland, Oostenrijk of Luxemburg, dan zijn ze daar bij winterse omstandigheden wél verplicht.</p>
+        </div>
+        <a href="tel:089370557" class="btn btn-primary" data-i18n="btn_call_now">Bel nu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="service">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="eyebrow_brands">Merken uit voorraad</p>
+        <h2 class="section-title" data-i18n="title_brands">Waar je op rijdt, kies je zelf</h2>
+        <p class="section-lead" data-i18n="lead_brands">Van premium tot budget — we leggen eerlijk uit wat het verschil is voor jouw kilometers.</p>
+      </header>
+
+      <ul class="brand-row reveal">
+        <li>Michelin</li>
+        <li>Continental</li>
+        <li>Pirelli</li>
+        <li>Bridgestone</li>
+        <li>Goodyear</li>
+        <li>Hankook</li>
+      </ul>
+
+      <div class="faq reveal">
+        <h3 class="faq-title" data-i18n="faq_title">Veelgestelde vragen</h3>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q1">Zit montage in de prijs?</summary>
+          <p data-i18n="faq_a1">Ja. De prijs die je hierboven ziet is per band en inclusief montage, balanceren en de Recytyre-milieubijdrage. Er komt niets bij.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q2">Moet ik een afspraak maken?</summary>
+          <p data-i18n="faq_a2">Bel even voor je langskomt. Dan weten we of je maat op voorraad is en kunnen we je meteen verder helpen.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q3">Wat is een jonge occasie?</summary>
+          <p data-i18n="faq_a3">Een gebruikte band met voldoende profiel die wij hebben nagekeken. Je krijgt er 7 dagen garantie op. Nieuwe banden hebben de wettelijke garantie.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q4">Kan een band hersteld worden?</summary>
+          <p data-i18n="faq_a4">Vaak wel, afhankelijk van waar de schade zit. Herstellen begint bij €5 — altijd goedkoper dan vervangen. Kom langs en we bekijken het.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q5">Welke merken hebben jullie?</summary>
+          <p data-i18n="faq_a5">Michelin, Continental, Pirelli, Bridgestone, Goodyear en Hankook, naast voordeligere merken. Vertel ons hoeveel je rijdt, dan zeggen we wat de moeite waard is.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q8">Wanneer moet ik van winter- naar zomerbanden?</summary>
+          <p data-i18n="faq_a8">De vuistregel is 7 graden: blijft het daar overdag onder, dan rijd je beter op winterbanden. In de praktijk wisselen de meeste mensen rond oktober en rond april. Bel gerust, dan spreken we een moment af.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q9">Zijn winterbanden verplicht in België?</summary>
+          <p data-i18n="faq_a9">Nee. In België bestaat er geen winterbandenplicht. Rijd je naar Duitsland, Oostenrijk of Luxemburg, dan moet je er bij winterse omstandigheden wel op rijden — iets om te weten als je vanuit Limburg de grens over gaat.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-i18n="faq_q6">Doen jullie ook camionetten?</summary>
+          <p data-i18n="faq_a6">Ja. Camionetbanden zijn €75 nieuw en €45 in jonge occasie, ook weer inclusief montage en balanceren.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- reviews:start -->
+  <section class="section" id="reviews">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="eyebrow" data-i18n="eyebrow_reviews">Wat klanten zeggen</p>
+        <h2 class="section-title" data-i18n="title_reviews">Beoordeeld door wie er langskwam</h2>
+        <p class="review-summary"><strong>4,3</strong> <span data-i18n="reviews_outof">van 5 op Google</span><span class="review-sep" aria-hidden="true">·</span><span>232 <span data-i18n="reviews_count">reviews</span></span>
+          <a href="https://www.google.com/maps/search/?api=1&amp;query=M+S+AUTOBANDEN+Hasseltweg+156+3600+Genk" target="_blank" rel="noopener" class="review-readall" data-i18n="reviews_readall">Lees ze allemaal →</a></p>
+      </header>
+
+      <div class="review-grid">
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Weer super goed geholpen lekkeband en zijn m terplaatse meteen komen vervangen . Reeds jaren klant en altijd goed en tegen super prijs geholpen.</p>
+          <footer class="review-meta">TUUR Brusten</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Lekke band in Genk, niemand wou ter plekke komen. Zelf band afgedraaid en met taxi naar daar. Binnen 5 minuten geholpen, nieuwe band erop, scherpe prijs! Nog zo’n garagist die weet wat hij doet👌</p>
+          <footer class="review-meta">Bilal Karabas</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Ben al bijna 10 jaar klant van hem. Zeer tevreden Vriendelijke medewerkers goede service. En goedkoop prijs. Ik raad aan iederen.</p>
+          <footer class="review-meta">Osman Köse</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Ze hebben mij geweldig goed geholpen met het wisselen van mijn zomerbanden naar winterbanden. De schroeven waren stuk gedraaid in de Ford garage. Het is hun toch gelukt om ze los te krijgen. Ik ga nog van hun diensten gebruik maken.</p>
+          <footer class="review-meta">Rudi Vrancken</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Op een zaterdag namiddag gegaan. Zonder afspraak, dadelijk geholpen . Zeggen niet veel maar werken door en goed prijs gemaakt. Zeker niet duur. Top</p>
+          <footer class="review-meta">Erik Hendrix</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Ik ben al jaren klant ook bij hun vorige locatie en super tevreden!</p>
+          <footer class="review-meta">Esad Usta</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Snel geholpen en heel goede prijzen. Nieuwe en tweedehands banden</p>
+          <footer class="review-meta">Dieudonne Cerulli</footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p class="review-stars" role="img" aria-label="5 van 5 sterren"><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span><span class="star on" aria-hidden="true">★</span></p>
+          <p class="review-text">Zeer vriendelijk personeel, zeer goed service en aantrekkelijke prijzen, kwaliteit- zeker kom ik terug</p>
+          <footer class="review-meta">Kaczmarek</footer>
+        </blockquote>
+        <div class="review review-add reveal">
+          <p class="review-stars" aria-hidden="true"><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span><span class="star on">★</span></p>
+          <h3 data-i18n="reviews_add_t">Zelf een review achterlaten?</h3>
+          <p class="review-add-d" data-i18n="reviews_add_d">Was je tevreden? Een paar zinnen helpen de volgende die twijfelt. Kies de vestiging waar je was:</p>
+          <div class="review-add-links">
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=M+S+AUTOBANDEN+Hasseltweg+156+3600+Genk" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Genk</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Autobanden+Hasselt+Sint-Truidersteenweg+420+3500+Hasselt" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Hasselt</a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Monthe-Cars+Hasseltsesteenweg+86+3800+Sint-Truiden" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Sint-Truiden</a>
           </div>
         </div>
       </div>
     </div>
   </section>
+  <!-- reviews:end -->
 
-  <section id="prices" class="full-page prices-bg">
-    <h2 class="section-title" data-i18n="price_title">Merken & Prijzen</h2>
-
-    <div class="price-container">
-      <div class="brands-grid">
-        <div class="brand-item">MICHELIN</div>
-        <div class="brand-item">CONTINENTAL</div>
-        <div class="brand-item">PIRELLI</div>
-        <div class="brand-item">BRIDGESTONE</div>
-        <div class="brand-item">GOODYEAR</div>
-        <div class="brand-item">HANKOOK</div>
+  <section class="cta-band" id="contact">
+    <div class="wrap cta-inner">
+      <h2 data-i18n="cta_title">Banden nodig? Bel even.</h2>
+      <p data-i18n="cta_sub">Vertel ons je maat, dan zeggen we meteen wat het kost en wanneer je terecht kan.</p>
+      <div class="cta-actions">
+        <a href="tel:089370557" class="btn btn-primary btn-lg">089 37 05 57</a>
+        <a href="https://wa.me/32467628747" target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
       </div>
-
-      <div class="price-tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'nieuw')" data-i18n="tab_new">Nieuw</button>
-        <button class="tab-btn" onclick="openTab(event, 'tweedehands')" data-i18n="tab_used">Jonge Occassie</button>
-      </div>
-
-      <div class="table-responsive">
-        <div id="nieuw" class="tab-content active">
-          <table class="price-table">
-            <thead>
-            <tr><th data-i18n="th_size">Maat</th><th data-i18n="th_price">Vanaf</th></tr>
-            </thead>
-            <tbody>
-            <tr><td>13" - 16"</td><td>€35</td></tr>
-            <tr><td>17"</td><td>€45</td></tr>
-            <tr><td>18"</td><td>€50</td></tr>
-            <tr><td>19"</td><td>€65</td></tr>
-            <tr><td>20" - 22"</td><td>€75</td></tr>
-            </tbody>
-          </table>
-          <div class="camionetten-box" data-i18n="camion_new">Ook voor Camionetten: €75</div>
-        </div>
-
-        <div id="tweedehands" class="tab-content">
-          <table class="price-table">
-            <thead>
-            <tr><th data-i18n="th_size">Maat</th><th data-i18n="th_price">Vanaf</th></tr>
-            </thead>
-            <tbody>
-            <tr><td>13" - 14"</td><td>€25</td></tr>
-            <tr><td>15" - 16"</td><td>€30</td></tr>
-            <tr><td>17" - 18"</td><td>€35</td></tr>
-            <tr><td>19" - 22"</td><td>€45</td></tr>
-            </tbody>
-          </table>
-          <div class="camionetten-box" data-i18n="camion_used">Ook voor Camionetten: €45</div>
-        </div>
-      </div>
-      <div class="minimal-info-section">
-        <div class="minimal-row" data-i18n="service_repair_bar">Bandenreparatie & Vervanging vanaf €5.</div>
-        <div class="minimal-row orange-text" data-i18n="service_include_bar">Alle prijzen incl. montage & balanceren.</div>
-      </div>
+      <p class="cta-hours"><span data-i18n="hours_label">Ma–Za</span> 09:00 – 19:00</p>
     </div>
   </section>
 
-  <footer id="footer" class="full-page footer-section">
-    <div class="final-content">
-      <h2 class="logo-main">M+S <span>Tyre Expert</span></h2>
-      <div class="company-details">
-        <p><strong>TYRE EXPERT SRL</strong></p>
-        <p class="about-text" data-i18n="about_us">M+S Tyre Expert is uw vertrouwde partner in Limburg voor alles wat met banden te maken heeft. Met 3 vestigingen en een passie voor perfectie garanderen wij u de veiligste wegkilometers tegen de beste prijs.</p>
+</main>
 
-        <p>En Hayeneux 73, 4040 Herstal</p>
-        <p>BTW: BE 1026.669.972 | RPR Luik</p>
-        <p><strong>Ma - Za: 09:00 - 19:00</strong></p>
-        <p class="footer-email">Email: <a href="mailto:info@mstyreemasters.be">info@mstyremasters.be</a></p>
-      </div>
-      <p class="site-footer">© 2026 M+S Tyre Expert</p>
-      <div class="legal-links">
-        <a href="#" data-i18n="privacy_link">Privacybeleid</a> |
-        <a href="#" data-i18n="terms_link">Algemene Voorwaarden</a> |
-        <a href="https://consumentenombudsdienst.be/nl" target="_blank" data-i18n="complaints_link">Consumentenombudsdienst</a>
-      </div>
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <span class="brand-mark">M+S</span> <span class="brand-word">Tyre Expert</span>
+      <p class="about" data-i18n="about_us">M+S Tyre Expert is uw vertrouwde partner in Limburg voor alles wat met banden te maken heeft. Met 3 vestigingen en een passie voor perfectie garanderen wij u de veiligste wegkilometers tegen de beste prijs.</p>
     </div>
-  </footer>
 
-</div>
+    <div class="footer-col">
+      <h2 data-i18n="foot_branches">Vestigingen</h2>
+      <ul>
+        <li>Genk — <a href="tel:089370557">089 37 05 57</a></li>
+        <li>Hasselt — <a href="tel:0480681985">0480 68 19 85</a></li>
+        <li>Sint-Truiden — <a href="tel:0467628747">0467 62 87 47</a></li>
+      </ul>
+    </div>
 
-<script src="script.js"></script>
-<div id="privacy-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2 data-i18n="privacy_title">Privacybeleid</h2>
-    <p data-i18n="privacy_text">
-      TYRE EXPERT SRL respecteert uw privacy. Wij verzamelen enkel persoonsgegevens die u vrijwillig verstrekt.
-      Deze worden uitsluitend gebruikt voor onze dienstverlening en niet gedeeld met derden.
-    </p>
-  </div>
-</div>
-<div id="terms-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal-terms">&times;</span>
-    <h2 data-i18n="terms_title">Algemene Voorwaarden</h2>
-    <div class="terms-text-container" data-i18n="terms_text">
+    <div class="footer-col">
+      <h2 data-i18n="foot_company">Bedrijfsgegevens</h2>
+      <ul>
+        <li>TYRE EXPERT SRL</li>
+        <li>En Hayeneux 73, 4040 Herstal</li>
+        <li>BTW BE 1026.669.972 — RPR Luik</li>
+        <li><a href="mailto:info@mstyremasters.be">info@mstyremasters.be</a></li>
+      </ul>
     </div>
   </div>
+
+  <div class="wrap footer-bar">
+    <p>© <span id="year">2026</span> M+S Tyre Expert</p>
+    <nav class="legal" aria-label="Juridisch">
+      <a href="privacy.html" data-i18n="privacy_link">Privacybeleid</a>
+      <a href="voorwaarden.html" data-i18n="terms_link">Algemene Voorwaarden</a>
+      <a href="https://consumentenombudsdienst.be/nl" target="_blank" rel="noopener" data-i18n="complaints_link">Consumentenombudsdienst</a>
+    </nav>
+  </div>
+</footer>
+
+<div class="call-bar">
+  <a href="tel:089370557" class="btn btn-primary">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg>
+    <span data-i18n="btn_call_now">Bel nu</span>
+  </a>
+  <a href="https://wa.me/32467628747" target="_blank" rel="noopener" class="btn btn-whatsapp" aria-label="WhatsApp">
+    <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 </div>
-<div class="nav-dots">
-  <a href="#home" class="dot active"></a>
-  <a href="#locations" class="dot"></a>
-  <a href="#prices" class="dot"></a>
-  <a href="#footer" class="dot"></a>
-</div>
-<a href="https://wa.me/3289370557" target="_blank" class="whatsapp-fab" title="WhatsApp">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+
+<button type="button" class="to-top" id="toTop" aria-label="Terug naar boven">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mstyreexperts.com/#org",
+      "name": "M+S Tyre Expert",
+      "alternateName": [
+        "M+S Bandenexperts",
+        "MS Banden Experts",
+        "M+S Banden"
+      ],
+      "legalName": "TYRE EXPERT SRL",
+      "url": "https://mstyreexperts.com/",
+      "email": "info@mstyremasters.be",
+      "vatID": "BE1026669972",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "En Hayeneux 73",
+        "postalCode": "4040",
+        "addressLocality": "Herstal",
+        "addressCountry": "BE"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://mstyreexperts.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Zit montage in de prijs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. De prijs die je hierboven ziet is per band en inclusief montage, balanceren en de Recytyre-milieubijdrage. Er komt niets bij."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Moet ik een afspraak maken?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bel even voor je langskomt. Dan weten we of je maat op voorraad is en kunnen we je meteen verder helpen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wat is een jonge occasie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Een gebruikte band met voldoende profiel die wij hebben nagekeken. Je krijgt er 7 dagen garantie op. Nieuwe banden hebben de wettelijke garantie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan een band hersteld worden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vaak wel, afhankelijk van waar de schade zit. Herstellen begint bij €5 — altijd goedkoper dan vervangen. Kom langs en we bekijken het."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welke merken hebben jullie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Michelin, Continental, Pirelli, Bridgestone, Goodyear en Hankook, naast voordeligere merken. Vertel ons hoeveel je rijdt, dan zeggen we wat de moeite waard is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wanneer moet ik van winter- naar zomerbanden?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "De vuistregel is 7 graden: blijft het daar overdag onder, dan rijd je beter op winterbanden. In de praktijk wisselen de meeste mensen rond oktober en rond april. Bel gerust, dan spreken we een moment af."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Zijn winterbanden verplicht in België?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nee. In België bestaat er geen winterbandenplicht. Rijd je naar Duitsland, Oostenrijk of Luxemburg, dan moet je er bij winterse omstandigheden wel op rijden — iets om te weten als je vanuit Limburg de grens over gaat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Doen jullie ook camionetten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Camionetbanden zijn €75 nieuw en €45 in jonge occasie, ook weer inclusief montage en balanceren."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "TireShop",
+      "name": "M+S Tyre Expert Genk",
+      "alternateName": [
+        "M+S Bandenexperts Genk"
+      ],
+      "parentOrganization": {
+        "@id": "https://mstyreexperts.com/#org"
+      },
+      "image": "https://mstyreexperts.com/images/genk-1024.jpg",
+      "telephone": "+3289370557",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hasseltweg 156",
+        "postalCode": "3600",
+        "addressLocality": "Genk",
+        "addressCountry": "BE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    },
+    {
+      "@type": "TireShop",
+      "name": "M+S Tyre Expert Hasselt",
+      "alternateName": [
+        "M+S Bandenexperts Hasselt"
+      ],
+      "parentOrganization": {
+        "@id": "https://mstyreexperts.com/#org"
+      },
+      "image": "https://mstyreexperts.com/images/hasselt-1024.jpg",
+      "telephone": "+32480681985",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sint-Truidersteenweg 420",
+        "postalCode": "3500",
+        "addressLocality": "Hasselt",
+        "addressCountry": "BE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    },
+    {
+      "@type": "TireShop",
+      "name": "M+S Tyre Expert Sint-Truiden",
+      "alternateName": [
+        "M+S Bandenexperts Sint-Truiden"
+      ],
+      "parentOrganization": {
+        "@id": "https://mstyreexperts.com/#org"
+      },
+      "image": "https://mstyreexperts.com/images/sint-truiden-1024.jpg",
+      "telephone": "+32467628747",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Hasseltsesteenweg 86",
+        "postalCode": "3800",
+        "addressLocality": "Sint-Truiden",
+        "addressCountry": "BE"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
+          "opens": "09:00",
+          "closes": "19:00"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<script src="script.js" defer></script>
 </body>
-
 </html>
