@@ -1237,6 +1237,23 @@ address { font-style: normal; }
 .branch-tel:hover { color: var(--brand); }
 .branch-card-actions { display: grid; gap: var(--sp-2); }
 
+/* tweede foto op een vestigingspagina, met bijschrift */
+.branch-extra { margin: 0 0 var(--sp-4); }
+.branch-extra picture {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.branch-extra img { width: 100%; height: auto; }
+.branch-extra figcaption {
+  margin-top: var(--sp-2);
+  padding-left: var(--sp-3);
+  border-left: 2px solid var(--brand);
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
 /* andere vestigingen */
 .branch-others { margin-top: var(--sp-6); }
 .branch-others h2 { font-size: var(--step-2); margin-bottom: var(--sp-3); }
