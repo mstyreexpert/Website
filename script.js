@@ -418,13 +418,13 @@ function changeLanguage(lang) {
 }
 
 function initLanguage() {
-  let lang = null;
-  try { lang = localStorage.getItem('ms-lang'); } catch (e) { /* privémodus */ }
-  if (!lang) {
-    const browser = (navigator.language || 'nl').slice(0, 2).toLowerCase();
-    lang = SUPPORTED.includes(browser) ? browser : 'nl';
-  }
-  changeLanguage(lang);
+  // Nederlands is de standaard. We kijken bewust niet naar de taal van de
+  // browser: een bezoeker met een Engels ingestelde laptop is hier meestal
+  // gewoon een Limburger. Alleen wie zelf FR of EN aanklikt, krijgt dat
+  // de volgende keer weer.
+  let gekozen = null;
+  try { gekozen = localStorage.getItem('ms-lang'); } catch (e) { /* privémodus */ }
+  changeLanguage(SUPPORTED.includes(gekozen) ? gekozen : 'nl');
 }
 
 /* ----------------------------------------------------------- prijzen --- */

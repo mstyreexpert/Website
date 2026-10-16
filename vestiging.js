@@ -446,13 +446,10 @@ function updateStatus() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  let lang = null;
-  try { lang = localStorage.getItem('ms-lang'); } catch (e) { /* privemodus */ }
-  if (!lang) {
-    const browser = (navigator.language || 'nl').slice(0, 2).toLowerCase();
-    lang = SUPPORTED.includes(browser) ? browser : 'nl';
-  }
-  changeLanguage(lang);
+  // Nederlands is de standaard; alleen een eigen keuze wordt onthouden.
+  let gekozen = null;
+  try { gekozen = localStorage.getItem('ms-lang'); } catch (e) { /* privemodus */ }
+  changeLanguage(SUPPORTED.includes(gekozen) ? gekozen : 'nl');
   setInterval(updateStatus, 60000);
 
   const year = document.getElementById('year');
